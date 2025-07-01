@@ -50,6 +50,11 @@ class _MainScreenState extends State<MainScreen>{
                 Navigator.pushNamed(context, "/euro_page");
               },
             ),
+            ListTile(
+              leading: Icon(Icons.abc_outlined),
+              title: Text("Iene"),
+              onTap: () => Navigator.pushNamed(context, "/"),
+            )
           ],
         ),
       ),
