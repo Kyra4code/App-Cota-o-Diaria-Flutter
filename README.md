@@ -1,3 +1,3 @@
-# app_cotacao_flutter
+# App Cotacao Flutter
 
-A new Flutter project.
+Projeto criado com propósito de treinar meu conhecimento no framework flutter
