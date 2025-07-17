@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 
 class DolarPage extends StatefulWidget{
   @override
@@ -10,7 +11,6 @@ class DolarPage extends StatefulWidget{
 class _DolarPage extends State<DolarPage>{
 
   String cotacaoAtual = "";
-  DateTime now = DateTime.now();
   
   @override
   void initState() {
@@ -19,20 +19,21 @@ class _DolarPage extends State<DolarPage>{
   }
 
   Future<void> verCotacao() async{
-    int dia = now.day;
-    int mes = now.month;
-    int ano = now.year;
 
-    String diaStr = dia.toString().padLeft(2, '0');
-    String mesStr = mes.toString().padLeft(2, '0');
-
-    final url = "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao=%27$mesStr-$diaStr-$ano%27&\$top=100&\$format=json";
+    final url = "https://economia.awesomeapi.com.br/json/last/USD";
     final response = await http.get(Uri.parse(url));
     if(response.statusCode == 200){
       setState(() {
         final data = json.decode(response.body);
-        cotacaoAtual = data["value"][0]["cotacaoCompra"].toStringAsFixed(2);
-        print(cotacaoAtual);
+        // print(data["USDBRL"]["ask"]);
+        double cotacaoAtual = double.parse(data["USDBRL"]["ask"]);
+        //Eu uso o number format para formatar o número fazendo ele se abreviar
+        NumberFormat formatter = NumberFormat("#,##0.00", "pt_BR");
+        this.cotacaoAtual = formatter.format(cotacaoAtual);
+
+        //Dps eu só converto em string para exibir na tela
+        cotacaoAtual.toString();
+        // print(cotacaoAtual);
       });
     }
     else{

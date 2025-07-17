@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MainScreen extends StatefulWidget{
   @override
@@ -51,7 +52,7 @@ class _MainScreenState extends State<MainScreen>{
               },
             ),
             ListTile(
-              leading: Icon(Icons.abc_outlined),
+              leading: Icon(FontAwesomeIcons.yenSign),
               title: Text("Iene"),
               onTap: () => Navigator.pushNamed(context, "/"),
             )

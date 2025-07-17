@@ -1,4 +1,4 @@
-name: cotação-diária
+name: app_cotacao_flutter
 description: "Projeto feito para treinar meu conhecimento em Flutter e Dart."
 publish_to: 'none'
 version: 0.1.0
@@ -10,6 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
   http: ^1.2.1
+  intl: ^0.18.0
+  font_awesome_flutter: ^10.7.0
 
 dev_dependencies:
   flutter_test:
