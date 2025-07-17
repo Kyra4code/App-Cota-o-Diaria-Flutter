@@ -38,14 +38,14 @@ class _MainScreenState extends State<MainScreen>{
               ),
             ),
             ListTile(
-              leading: Icon(Icons.attach_money),
+              leading: Icon(FontAwesomeIcons.dollarSign),
               title: Text('Dólar'),
               onTap: () {
                 Navigator.pushNamed(context, "/dolar_page");
               },
             ),
             ListTile(
-              leading: Icon(Icons.euro_symbol),
+              leading: Icon(FontAwesomeIcons.euroSign),
               title: Text('Euro'),
               onTap: () {
                 Navigator.pushNamed(context, "/euro_page");
@@ -54,7 +54,7 @@ class _MainScreenState extends State<MainScreen>{
             ListTile(
               leading: Icon(FontAwesomeIcons.yenSign),
               title: Text("Iene"),
-              onTap: () => Navigator.pushNamed(context, "/"),
+              onTap: () => Navigator.pushNamed(context, "/iene_page"),
             )
           ],
         ),

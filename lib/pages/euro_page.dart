@@ -28,11 +28,9 @@ class _EuroPage extends State<EuroPage>{
         // print(data["USDBRL"]["ask"]);
         double cotacaoAtual = double.parse(data["EURBRL"]["ask"]);
         //Eu uso o number format para formatar o número fazendo ele se abreviar
-        NumberFormat formatter = NumberFormat("#,##0.00", "pt_BR");
-        this.cotacaoAtual = formatter.format(cotacaoAtual);
+        NumberFormat formatter = NumberFormat.currency(locale: "pt_BR", symbol: "R\$", decimalDigits: 2);
+        this.cotacaoAtual = formatter.format(cotacaoAtual).replaceAll("R\$", "€").toString();
 
-        //Dps eu só converto em string para exibir na tela
-        cotacaoAtual.toString();
         // print(cotacaoAtual);
       });
     }
@@ -50,7 +48,7 @@ class _EuroPage extends State<EuroPage>{
         title: Text("Cotação Euro"),
       ),
       body: Center(
-        child: Text("Cotação atual do Euro hoje: \$$cotacaoAtual"),
+        child: Text("Cotação atual do Euro hoje: ${cotacaoAtual}"),
       ),
     );
   }
